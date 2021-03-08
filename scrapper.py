@@ -26,9 +26,9 @@ for index, row in reps.iterrows():
 	if not len(twint.output.panda.Tweets_df):
 		print('No tweets from: ', user_name)
 		continue
-	tmp = twint.output.panda.Tweets_df[['tweet']]
-	tmp['party'] = user_name
-	tmp.to_csv (r'./2020_tweets.csv', mode='a', index=False, header=True)
+	tmp = twint.output.panda.Tweets_df[['tweet','id','conversation_id']]
+	tmp['party'] = party[0]
+	tmp.to_csv (r'./2020_detailed_tweets.csv', mode='a', index=False, header=True)
 	counter[party] += len(tmp)
 	print(counter)
 print('=' * 25)
